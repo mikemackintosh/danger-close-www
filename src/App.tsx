@@ -59,8 +59,8 @@ function App() {
         <nav className="bg-white dark:bg-gray-900 fixed w-full z-20 top-0 start-0 border-none	border-gray-200 dark:border-gray-600">
           <div className="max-w-screen-xl items-center justify-between mx-auto p-4">
               <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 xl:grid-cols-3 gap-0">
-                  <div className="flex pr-8 justify-left align-middle  sm:justify-center sm:text-center md:text-center md:justify-center">
-                    <div className="flex-none mt-3 w-64 pl-4 text-2xl text-center">
+                  <div className="flex pr-8 text-center">
+                    <div className="flex lg:mt-2 md:mt-3 w-64 text-2xl text-center">
                       Plan<span className="font-bold">B</span> Security
                     </div>
                   </div>
@@ -78,7 +78,7 @@ function App() {
                   }
                   </div>
 
-                <div className="flex pl-8 mt-3 text-right justify-center">
+                <div className="flex lg:pl-8 mt-3 text-right justify-center">
                   <span className="font-mono text-slate-500 pr-2">Hosted by: </span> <a className="font-bold" target="_blank" href="https://x.com/mikemackintosh">@mikemackintosh</a>
                 </div>
               </div>
@@ -126,11 +126,11 @@ function App() {
             />
           </div>
           <div className="overflow-hidden">
-            <div className="max-w-7xl px-6 pt-36 sm:pt-60  lg:pt-32">
+            <div className="max-w-7xl px-6 pt-36 sm:mt-16 lg:pt-32">
               <div className=" max-w-2xl gap-x-16 lg:mx-0 lg:flex lg:max-w-none">
-                <div className="w-full max-w-xl lg:shrink-0 xl:max-w-2xl">
+                <div className="pt-8 w-full max-w-xl lg:shrink-0 xl:max-w-2xl">
                   <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
-                    PlanB Security.
+                    PlanB Security is a Podcast talking about all things <span className="bg-purple-300 px-1 hover:bg-slate-800 hover:text-white hover:cursor-pointer">#InfoSec</span>, helping you prepare for when things go wrong.
                   </h1>
                   <div
               className="mt-4 col-span-4 grid grid-cols-4 justify-center gap-10 mx-4 text-base font-medium leading-7 text-slate-800 sm:gap-8 lg:flex-col lg:gap-4"
@@ -148,16 +148,16 @@ function App() {
                     className="group flex items-center"
                     aria-label={label}
                   >
-                    <div className={"pr-6 flex ml-18 items-center gap-x-1 bg-white border border-gray-200 text-sm text-gray-800 p-1 pl-2 rounded-full transition hover:border-gray-300 dark:bg-gray-800 dark:border-gray-700 dark:hover:border-gray-600 dark:text-gray-200"}>
-                      <Icon className="h-8 w-8  fill-purple-400 group-hover:fill-orange-400" />
-                      <span className="hidden sm:ml-3 sm:block">{label}</span>
+                    <div className={"flex ml-18 items-center gap-x-1 bg-white border border-gray-200 text-sm text-gray-800 p-1 pl-2 rounded-full transition hover:border-gray-300 dark:bg-gray-800 dark:border-gray-700 dark:hover:border-gray-600 dark:text-gray-200"}>
+                      <Icon className="h-8 w-8 pr-1 md:pr-0 fill-purple-400 group-hover:fill-orange-400" />
+                      <span className="hidden sm:ml-3 sm:block pr-4">{label}</span>
                     </div>
                   </a>
                 </div>
               ))}
             </div>
-                  <p className="relative mt-6 text-lg text-gray-100 font-semibold leading-8 sm:max-w-md lg:max-w-none">
-                    Security is not just a technical problem anymore.
+                  <p className="relative mt-6 text-lg text-gray-100 font-semibold leading-5 sm:max-w-md lg:max-w-none">
+                    Security is not just a technical problem anymore. The industry is changing everyday, with new laws, regulations, requirements, attacks, threats, tooling and more. Join us every week as we touch upon new topics and new ways of thinking so you can grow through building a strong security program.
                   </p>
                 </div>
               </div>
