@@ -35,8 +35,6 @@ export async function getAllEpisodes(feedUrl: string) {
   let feed = (await parseFeed(
     feedUrl,
   )) as any;
-
-  console.log("feed", feed.items);
   
   let episodes: Array<Episode> = feed.items.map(
     ({ id, title, description, content, enclosures, published }) => ({

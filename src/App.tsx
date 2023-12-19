@@ -49,10 +49,9 @@ function PersonIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
   )
 }
 
+let episodes = await getAllEpisodes("https://anchor.fm/s/e741494c/podcast/rss")
 
 function App() {
-  let episodes = (async () => {await getAllEpisodes("https://anchor.fm/s/e741494c/podcast/rss")});
-
   return (
     <>
     <AudioProvider>
@@ -190,7 +189,8 @@ function EpisodeEntry({ episode }: { episode: Episode }) {
   let date = new Date(episode.published)
 
   return (
-    <a id={episode.id.toString()}>
+    <>
+    <a id={episode.id.toString()}/>
     <article
       aria-labelledby={`episode-${episode.id}-title`}
       className="py-10 sm:py-12"
@@ -242,7 +242,7 @@ function EpisodeEntry({ episode }: { episode: Episode }) {
           </div>
         </div>
     </article>
-    </a>
+    </>
   )
 }
 
