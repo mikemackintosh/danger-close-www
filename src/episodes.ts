@@ -7,6 +7,7 @@ export interface Episode {
   published: Date
   description: string
   content: string
+  itunes_duration: string
   audio: {
     src: string
     type: string
@@ -22,6 +23,7 @@ export async function getAllEpisodes(feedUrl: string) {
         published: number(),
         description: string(),
         content: string(),
+        itunes_duration: string(),
         enclosures: array(
           object({
             url: string(),
@@ -37,12 +39,13 @@ export async function getAllEpisodes(feedUrl: string) {
   )) as any;
   
   let episodes: Array<Episode> = feed.items.map(
-    ({ id, title, description, content, enclosures, published }) => ({
+    ({ id, title, description, content, itunes_duration, enclosures, published }) => ({
       id,
       title: `${title}`,
       published: new Date(published),
       description,
       content,
+      itunes_duration,
       audio: enclosures.map((enclosure) => ({
         src: enclosure.url,
         type: enclosure.type,

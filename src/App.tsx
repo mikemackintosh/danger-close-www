@@ -198,34 +198,43 @@ function EpisodeEntry({ episode }: { episode: Episode }) {
       aria-labelledby={`episode-${episode.id}-title`}
       className="py-10 sm:py-12"
     >
-        <div className="flex flex-col items-start rounded-lg bg-slate-800 px-6 pt-6 pb-6">
-          <h2
-            id={`episode-${episode.id}-title`}
-            className="mt-2 text-lg font-bold text-slate-100"
-          >
-            <a href={`/${episode.id}`}>{episode.title}</a>
-          </h2>
-          <FormattedDate
-            date={date}
-            className="order-first font-mono text-sm leading-7 text-slate-500"
-          />
-          <p className="mt-1 text-base leading-7 text-slate-300">
-            {episode.description.replace("<p>", "").replace("</p>", "")}
-          </p>
-          <div className="mt-4 flex items-center gap-4">
+        <div className="flex flex-col items-start">
+          <div className=" rounded-t-lg bg-slate-800 p-4">
+            <div className="flex text-center items-center">
+              <h2
+                id={`episode-${episode.id}-title`}
+                className="flex-none mt-2 text-xl font-bold text-slate-100"
+              >
+                <a href={`/${episode.id}`}>{episode.title}</a>
+              </h2>
+              <div className="grow font-bold text-sm w-14 items-center mt-4 text-right">
+                <span className="text-white font-mono pr-2 justify-end">
+                  {episode.itunes_duration}
+                </span>
+              </div>
+            </div>
+            <FormattedDate
+              date={date}
+              className="order-first font-mono leading-7 text-sm text-slate-500"
+            />
+            <p className="mt-1 pb-2 leading-7 text-slate-300">
+              {episode.description.replace("<p>", "").replace("</p>", "")}
+            </p>
+          </div>
+          <div className="w-full px-5 pb-3 pt-3 flex items-center gap-4 rounded-b-lg bg-slate-700 border-t border-t-slate-600 border-b border-b-slate-900">
             <EpisodePlayButton
               episode={episode}
               className="flex items-center gap-x-3 text-sm font-bold leading-6 text-purple-400 hover:text-orange-400"
               playing={
                 <>
                   <PauseIcon className="h-2.5 w-2.5 fill-current" />
-                  <span aria-hidden="true">Listen</span>
+                  <span aria-hidden="true" className="text-md">Listen</span>
                 </>
               }
               paused={
                 <>
                   <PlayIcon className="h-2.5 w-2.5 fill-current" />
-                  <span aria-hidden="true">Listen</span>
+                  <span aria-hidden="true" className="text-md">Listen</span>
                 </>
               }
             />
