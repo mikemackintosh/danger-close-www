@@ -1,7 +1,10 @@
 'use client'
 
+import React from 'react';
+
 import { useAudioPlayer } from './AudioProvider'
 import { type Episode } from './episodes'
+import { useGTMDispatch } from '@elgorditosalsero/react-gtm-hook'
 
 export function EpisodePlayButton({
   episode,
@@ -15,10 +18,15 @@ export function EpisodePlayButton({
 }) {
   let player = useAudioPlayer(episode)
 
+  const sendDataToGTM = useGTMDispatch()
+
   return (
     <button
       type="button"
-      onClick={() => player.toggle()}
+      onClick={() => {
+        sendDataToGTM({ event: 'play_episode', value: episode.title });
+        player.toggle();
+      }}
       aria-label={`${player.playing ? 'Pause' : 'Play'} episode ${
         episode.title
       }`}

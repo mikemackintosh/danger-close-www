@@ -7,7 +7,7 @@ import { type Episode, getAllEpisodes } from './episodes'
 import { EpisodePlayButton } from './EpisodePlayButton.tsx';
 import { PauseIcon } from './PauseIcon';
 import { PlayIcon } from './PlayIcon';
-
+import { GTMProvider } from '@elgorditosalsero/react-gtm-hook'
 
 function SpotifyIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
   return (
@@ -52,135 +52,138 @@ function PersonIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
 let episodes = await getAllEpisodes("https://anchor.fm/s/e741494c/podcast/rss")
 
 function App() {
+  const gtmParams = { id: 'G-W86BT3ZBT6' }
   return (
     <>
-    <AudioProvider>
-        {/* */}
-        <nav className="bg-white dark:bg-gray-900 fixed w-full z-20 top-0 start-0 border-none	border-gray-200 dark:border-gray-600">
-          <div className="max-w-screen-xl items-center justify-between mx-auto p-4">
-              <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 xl:grid-cols-3 gap-0">
-                  <div className="flex pr-8 text-center">
-                    <div className="flex lg:mt-2 md:mt-3 w-64 text-2xl text-center dark:text-white text-gray-800">
-                      Plan<span className="font-bold">B</span> Security
+      <GTMProvider state={gtmParams}>
+        <AudioProvider>
+            {/* */}
+            <nav className="bg-white  dark:bg-gray-900 w-full p-2 border-none	border-gray-200 dark:border-gray-600">
+              <div className="items-center mx-auto">
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-0">
+                      <div className="flex items-center justify-center sm:justify-normal sm:ml-6 md:pr-8 text-center sm:text-left">
+                        <span className="font-bold text-2xl dark:text-white text-gray-800">
+                          PlanB Security
+                        </span>
+                      </div>
+
+                      <div className="flex mt-2">
+                      {episodes.length > 0 && 
+                        <a className="flex w-full items-center gap-x-2 bg-white border border-gray-200 text-sm text-gray-800 p-1 pl-3 rounded-full transition hover:border-gray-300 dark:bg-gray-800 dark:border-gray-700 dark:hover:border-gray-600 dark:text-gray-200" href={"#"+episodes[0].id}>
+                          <span className="font-bold">New!</span> <span className="font-bold dark:text-white text-gray-800 hover:text-orange-300">{episodes[0].title}</span>
+                          <span className="py-2 px-3 inline-flex justify-center items-center gap-x-2 rounded-full bg-gray-200 font-semibold text-sm text-gray-600 dark:bg-gray-700 dark:text-gray-400">
+                            <svg className="w-2.5 h-2.5" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                              <path d="M5.27921 2L10.9257 7.64645C11.1209 7.84171 11.1209 8.15829 10.9257 8.35355L5.27921 14" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+                            </svg>
+                          </span>
+                        </a>
+                      }
+                      </div>
+
+                    <div className="flex lg:pl-8 mt-3 text-right justify-center text-slate-500">
+                      <span className="font-mono pr-2">Hosted by: </span> <a className="font-bold" target="_blank" href="https://x.com/mikemackintosh">@mikemackintosh</a>
                     </div>
                   </div>
-
-                  <div className="flex mt-2">
-                  {episodes.length > 0 && 
-                    <a className="flex w-full items-center gap-x-2 bg-white border border-gray-200 text-sm text-gray-800 p-1 pl-3 rounded-full transition hover:border-gray-300 dark:bg-gray-800 dark:border-gray-700 dark:hover:border-gray-600 dark:text-gray-200" href={"#"+episodes[0].id}>
-                      <span className="font-bold">New!</span> <span className="font-bold dark:text-white text-gray-800 hover:text-orange-300">{episodes[0].title}</span>
-                      <span className="py-2 px-3 inline-flex justify-center items-center gap-x-2 rounded-full bg-gray-200 font-semibold text-sm text-gray-600 dark:bg-gray-700 dark:text-gray-400">
-                        <svg className="w-2.5 h-2.5" width="16" height="16" viewBox="0 0 16 16" fill="none">
-                          <path d="M5.27921 2L10.9257 7.64645C11.1209 7.84171 11.1209 8.15829 10.9257 8.35355L5.27921 14" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
-                        </svg>
-                      </span>
-                    </a>
-                  }
-                  </div>
-
-                <div className="flex lg:pl-8 mt-3 text-right justify-center text-slate-500">
-                  <span className="font-mono pr-2">Hosted by: </span> <a className="font-bold" target="_blank" href="https://x.com/mikemackintosh">@mikemackintosh</a>
                 </div>
-              </div>
-            </div>
-        </nav>
-          
-        {/* */}
-        <main className="isolate">
-        {/* Hero section */}
-        <div className="relative isolate -z-10">
-          <svg
-            className="absolute inset-x-0 top-0 -z-10 h-[64rem] w-full stroke-gray-200 [mask-image:radial-gradient(32rem_32rem_at_center,white,transparent)]"
-            aria-hidden="true"
-          >
-            <defs>
-              <pattern
-                id="1f932ae7-37de-4c0a-a8b0-a6e3b4d44b84"
-                width={200}
-                height={200}
-                x="50%"
-                y={-1}
-                patternUnits="userSpaceOnUse"
+            </nav>
+              
+            {/* */}
+            <main className="isolate">
+            {/* Hero section */}
+            <div className="relative isolate -z-10">
+              <svg
+                className="absolute inset-x-0 top-0 -z-10 h-[64rem] w-full stroke-gray-200 [mask-image:radial-gradient(32rem_32rem_at_center,white,transparent)]"
+                aria-hidden="true"
               >
-                <path d="M.5 200V.5H200" fill="none" />
-              </pattern>
-            </defs>
-            <svg x="50%" y={-1} className="overflow-visible fill-gray-50">
-              <path
-                d="M-200 0h201v201h-201Z M600 0h201v201h-201Z M-400 600h201v201h-201Z M200 800h201v201h-201Z"
-                strokeWidth={0}
-              />
-            </svg>
-            <rect width="100%" height="100%" strokeWidth={0} fill="url(#1f932ae7-37de-4c0a-a8b0-a6e3b4d44b84)" />
-          </svg>
-          <div
-            className="absolute left-1/2 right-0 top-0 -z-10 -ml-24 transform-gpu overflow-hidden blur-3xl lg:ml-24 xl:ml-48"
-            aria-hidden="true"
-          >
-            <div
-              className="aspect-[801/1036] w-[50.0625rem] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30"
-              style={{
-                clipPath:
-                  'polygon(63.1% 29.5%, 100% 17.1%, 76.6% 3%, 48.4% 0%, 44.6% 4.7%, 54.5% 25.3%, 59.8% 49%, 55.2% 57.8%, 44.4% 57.2%, 27.8% 47.9%, 35.1% 81.5%, 0% 97.7%, 39.2% 100%, 35.2% 81.4%, 97.2% 52.8%, 63.1% 29.5%)',
-              }}
-            />
-          </div>
-          <div className="overflow-hidden">
-            <div className="max-w-7xl px-6 pt-36 sm:mt-16 lg:pt-32">
-              <div className=" max-w-2xl gap-x-16 lg:mx-0 lg:flex lg:max-w-none">
-                <div className="pt-8 w-full max-w-xl lg:shrink-0 xl:max-w-2xl">
-                  <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
-                    PlanB Security is a Podcast talking about all things <span className="bg-purple-300 px-1 hover:bg-slate-800 hover:text-white hover:cursor-pointer">#InfoSec</span>, helping you prepare for when things go wrong.
-                  </h1>
-                  <div
-              className="mt-4 col-span-4 grid grid-cols-4 justify-center gap-10 mx-4 text-base font-medium leading-7 text-slate-800 sm:gap-8 lg:flex-col lg:gap-4"
-            >
-              {(
-                [
-                  ['Spotify', SpotifyIcon, "https://open.spotify.com/show/1I1lWiytUs20VRnLz1aUQb"],
-                  ['Apple', ApplePodcastIcon, "https://podcasts.apple.com/gb/podcast/plan-b-security/id1702358824"],
-                  ['RSS Feed', RSSIcon, "https://anchor.fm/s/e741494c/podcast/rss"],
-                ] as const
-              ).map(([label, Icon, URL]) => (
-                <div key={label} className="flex">
-                  <a
-                    href={URL}
-                    className="group flex items-center"
-                    aria-label={label}
+                <defs>
+                  <pattern
+                    id="1f932ae7-37de-4c0a-a8b0-a6e3b4d44b84"
+                    width={200}
+                    height={200}
+                    x="50%"
+                    y={-1}
+                    patternUnits="userSpaceOnUse"
                   >
-                    <div className={"flex ml-18 items-center gap-x-1 bg-white border border-gray-200 text-sm text-gray-800 p-1 pl-2 rounded-full transition hover:border-gray-300 dark:bg-gray-800 dark:border-gray-700 dark:hover:border-gray-600 dark:text-gray-200"}>
-                      <Icon className="h-8 w-8 pr-1 md:pr-0 fill-purple-400 group-hover:fill-orange-400" />
-                      <span className="hidden sm:ml-3 sm:block pr-4">{label}</span>
+                    <path d="M.5 200V.5H200" fill="none" />
+                  </pattern>
+                </defs>
+                <svg x="50%" y={-1} className="overflow-visible fill-gray-50">
+                  <path
+                    d="M-200 0h201v201h-201Z M600 0h201v201h-201Z M-400 600h201v201h-201Z M200 800h201v201h-201Z"
+                    strokeWidth={0}
+                  />
+                </svg>
+                <rect width="100%" height="100%" strokeWidth={0} fill="url(#1f932ae7-37de-4c0a-a8b0-a6e3b4d44b84)" />
+              </svg>
+              <div
+                className="absolute left-1/2 right-0 top-0 -z-10 -ml-24 transform-gpu overflow-hidden blur-3xl lg:ml-24 xl:ml-48"
+                aria-hidden="true"
+              >
+                <div
+                  className="aspect-[801/1036] w-[50.0625rem] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30"
+                  style={{
+                    clipPath:
+                      'polygon(63.1% 29.5%, 100% 17.1%, 76.6% 3%, 48.4% 0%, 44.6% 4.7%, 54.5% 25.3%, 59.8% 49%, 55.2% 57.8%, 44.4% 57.2%, 27.8% 47.9%, 35.1% 81.5%, 0% 97.7%, 39.2% 100%, 35.2% 81.4%, 97.2% 52.8%, 63.1% 29.5%)',
+                  }}
+                />
+              </div>
+              <div className="overflow-hidden">
+                <div className="max-w-7xl px-6">
+                  <div className=" max-w-2xl gap-x-16 lg:mx-0 lg:flex lg:max-w-none">
+                    <div className="pt-8 w-full max-w-xl lg:shrink-0 xl:max-w-2xl">
+                      <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
+                        PlanB Security is a Podcast talking about all things <span className="bg-purple-300 px-1 hover:bg-slate-800 hover:text-white hover:cursor-pointer">#InfoSec</span>, helping you prepare for when things go wrong.
+                      </h1>
+                      <div
+                  className="mt-4 col-span-4 grid grid-cols-4 justify-center gap-10 mx-4 text-base font-medium leading-7 text-slate-800 sm:gap-8 lg:flex-col lg:gap-4"
+                >
+                  {(
+                    [
+                      ['Spotify', SpotifyIcon, "https://open.spotify.com/show/1I1lWiytUs20VRnLz1aUQb"],
+                      ['Apple', ApplePodcastIcon, "https://podcasts.apple.com/gb/podcast/plan-b-security/id1702358824"],
+                      ['RSS Feed', RSSIcon, "https://anchor.fm/s/e741494c/podcast/rss"],
+                    ] as const
+                  ).map(([label, Icon, URL]) => (
+                    <div key={label} className="flex">
+                      <a
+                        href={URL}
+                        className="group flex items-center"
+                        aria-label={label}
+                      >
+                        <div className={"flex ml-18 items-center gap-x-1 bg-white border border-gray-200 text-sm text-gray-800 p-1 pl-2 rounded-full transition hover:border-gray-300 dark:bg-gray-800 dark:border-gray-700 dark:hover:border-gray-600 dark:text-gray-200"}>
+                          <Icon className="h-8 w-8 pr-1 md:pr-0 fill-purple-400 group-hover:fill-orange-400" />
+                          <span className="hidden sm:ml-3 sm:block pr-4">{label}</span>
+                        </div>
+                      </a>
                     </div>
-                  </a>
+                  ))}
                 </div>
-              ))}
-            </div>
-                  <p className="relative mt-6 text-lg text-gray-100 font-semibold leading-5 sm:max-w-md lg:max-w-none">
-                    Security is not just a technical problem anymore. The industry is changing everyday, with new laws, regulations, requirements, attacks, threats, tooling and more. Join us every week as we touch upon new topics and new ways of thinking so you can grow through building a strong security program.
-                  </p>
+                      <p className="relative mt-6 text-lg text-gray-100 font-semibold leading-5 sm:max-w-md lg:max-w-none">
+                        Security is not just a technical problem anymore. The industry is changing everyday, with new laws, regulations, requirements, attacks, threats, tooling and more. Join us every week as we touch upon new topics and new ways of thinking so you can grow through building a strong security program.
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        </div>
 
-        <div className="pb-12 pt-16 sm:pb-4 lg:pt-12 mx-6">
-            <h1 className="text-2xl font-bold leading-7 text-slate-900">
-              Episodes
-            </h1>
-          <div className="sm:mt-4 lg:mt-8">
-            {episodes.map((episode) => (
-              <EpisodeEntry key={episode.id} episode={episode} />
-            ))}
-          </div>
-        </div>
+            <div className="pb-12 pt-16 sm:pb-4 lg:pt-12 mx-6">
+                <h1 className="text-2xl font-bold leading-7 text-slate-900">
+                  Episodes
+                </h1>
+              <div className="">
+                {episodes.map((episode) => (
+                  <EpisodeEntry key={episode.id} episode={episode} />
+                ))}
+              </div>
+            </div>
 
-        <div className="fixed inset-x-0 bottom-0 z-10">
-          <AudioPlayer />
-        </div>
-      </main>
-    </AudioProvider>
+            <div className="fixed inset-x-0 bottom-0 z-10">
+              <AudioPlayer />
+            </div>
+          </main>
+        </AudioProvider>
+      </GTMProvider>
     </>
   )
 }
