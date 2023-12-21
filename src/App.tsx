@@ -60,7 +60,7 @@ function App() {
           <div className="max-w-screen-xl items-center justify-between mx-auto p-4">
               <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 xl:grid-cols-3 gap-0">
                   <div className="flex pr-8 text-center">
-                    <div className="flex lg:mt-2 md:mt-3 w-64 text-2xl text-center">
+                    <div className="flex lg:mt-2 md:mt-3 w-64 text-2xl text-center dark:text-white text-gray-800">
                       Plan<span className="font-bold">B</span> Security
                     </div>
                   </div>
@@ -68,7 +68,7 @@ function App() {
                   <div className="flex mt-2">
                   {episodes.length > 0 && 
                     <a className="flex w-full items-center gap-x-2 bg-white border border-gray-200 text-sm text-gray-800 p-1 pl-3 rounded-full transition hover:border-gray-300 dark:bg-gray-800 dark:border-gray-700 dark:hover:border-gray-600 dark:text-gray-200" href={"#"+episodes[0].id}>
-                      <span className="font-bold">New!</span> <span className="font-bold text-white hover:text-orange-300">{episodes[0].title}</span>
+                      <span className="font-bold">New!</span> <span className="font-bold dark:text-white text-gray-800 hover:text-orange-300">{episodes[0].title}</span>
                       <span className="py-2 px-3 inline-flex justify-center items-center gap-x-2 rounded-full bg-gray-200 font-semibold text-sm text-gray-600 dark:bg-gray-700 dark:text-gray-400">
                         <svg className="w-2.5 h-2.5" width="16" height="16" viewBox="0 0 16 16" fill="none">
                           <path d="M5.27921 2L10.9257 7.64645C11.1209 7.84171 11.1209 8.15829 10.9257 8.35355L5.27921 14" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
@@ -78,8 +78,8 @@ function App() {
                   }
                   </div>
 
-                <div className="flex lg:pl-8 mt-3 text-right justify-center">
-                  <span className="font-mono text-slate-500 pr-2">Hosted by: </span> <a className="font-bold" target="_blank" href="https://x.com/mikemackintosh">@mikemackintosh</a>
+                <div className="flex lg:pl-8 mt-3 text-right justify-center text-slate-500">
+                  <span className="font-mono pr-2">Hosted by: </span> <a className="font-bold" target="_blank" href="https://x.com/mikemackintosh">@mikemackintosh</a>
                 </div>
               </div>
             </div>
