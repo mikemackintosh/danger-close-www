@@ -297,15 +297,15 @@ function EpisodeEntry({ episode }: { episode: Episode }) {
     >
         <div className="flex flex-col items-start">
           <div className=" rounded-t-lg bg-slate-800 p-4">
-            <div className="flex text-center items-center">
+            <div className="flex">
               <h2
                 id={`episode-${episode.id}-title`}
-                className="flex-none mt-2 text-xl font-bold text-slate-100"
+                className="flex-grow mt-2 pr-4 text-xl font-bold text-slate-100 "
               >
                 <a href={`/${episode.id}`}>{episode.title}</a>
               </h2>
-              <div className="grow font-bold text-sm w-14 items-center mt-4 text-right">
-                <span className="text-white font-mono pr-2 justify-end">
+              <div className="flex-none font-bold text-sm w-14 items-center mr-4 mt-4 text-right">
+                <span className="text-white font-mono justify-end">
                   {episode.itunes_duration}
                 </span>
               </div>
