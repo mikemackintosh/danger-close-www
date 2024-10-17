@@ -1,2 +1,2 @@
 build:
-	docker build -t planb-www .
+	docker build -t dangerclose-www .
