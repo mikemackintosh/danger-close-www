@@ -3,7 +3,7 @@
 import React from "react";
 import { clsx } from "clsx";
 import { motion } from "framer-motion";
-import { Subheading } from "./Text";
+import { Subheading } from "./text";
 
 export function BentoCard({
   dark = false,

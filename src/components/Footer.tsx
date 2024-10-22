@@ -1,11 +1,11 @@
 import React from "react";
 import { PlusGrid, PlusGridItem, PlusGridRow } from "./plus-grid";
 import { Button } from "./button";
-import { Container } from "./Container";
-import { Gradient } from "./Gradient";
+import { Container } from "./container";
+import { Gradient } from "./gradient";
 import { Link } from "./link";
 import { Logo } from "./logo";
-import { Subheading } from "./Text";
+import { Subheading } from "./text";
 
 function CallToAction() {
   return (
