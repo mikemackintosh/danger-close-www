@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { Gradient } from "../components/Gradient";
-import { Container } from "../components/Container";
+import { Gradient } from "../components/gradient";
+import { Container } from "../components/container";
 import { Navbar } from "../components/navbar";
 
 export const ThankYou = () => {

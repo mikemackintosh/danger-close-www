@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { Gradient } from "../components/Gradient";
-import { Container } from "../components/Container";
+import { Gradient } from "../components/gradient";
+import { Container } from "../components/container";
 import { Navbar } from "../components/navbar";
 import { useFormData } from "herotofu-react";
 import clsx from "clsx";
@@ -31,7 +31,7 @@ export const Contact = () => {
                 type="text"
                 placeholder="Your name"
                 name="name"
-                className="focus:outline-none focus:ring focus:ring-orange-500 relative w-full px-3 py-3 text-sm text-gray-100 placeholder-gray-200 bg-white border-0 rounded-lg bg-black/20 outline-none"
+                className="focus:outline-none focus:ring focus:ring-orange-500 relative w-full px-3 py-3 text-sm text-gray-100 placeholder-gray-200  border-0 rounded-lg bg-black/20 outline-none"
                 required
               />
             </div>
@@ -40,7 +40,7 @@ export const Contact = () => {
                 type="email"
                 placeholder="Email"
                 name="email"
-                className="focus:outline-none focus:ring focus:ring-orange-500 relative w-full px-3 py-3 text-sm text-gray-100 placeholder-gray-200 bg-white border-0 rounded-lg bg-black/20 outline-none"
+                className="focus:outline-none focus:ring focus:ring-orange-500 relative w-full px-3 py-3 text-sm text-gray-100 placeholder-gray-200  border-0 rounded-lg bg-black/20 outline-none"
                 required
               />
             </div>
@@ -48,7 +48,7 @@ export const Contact = () => {
               <textarea
                 placeholder="How can we help?"
                 name="message"
-                className="focus:outline-none focus:ring focus:ring-orange-500 relative w-full px-3 py-3 text-sm text-gray-100 placeholder-gray-200 bg-white border-0 rounded-lg bg-black/20 outline-none"
+                className="focus:outline-none focus:ring focus:ring-orange-500 relative w-full px-3 py-3 text-sm text-gray-100 placeholder-gray-200  border-0 rounded-lg bg-black/20 outline-none"
                 required
               />
             </div>
@@ -56,10 +56,10 @@ export const Contact = () => {
               <button
                 className={clsx(
                   "relative inline-flex items-center justify-center px-4 py-[calc(theme(spacing.2)-1px)]",
-                  "rounded-full border border-transparent bg-white/15 shadow-md ring-1 ring-[#ff8a60]/80",
+                  "rounded-full border border-transparent /15 shadow-md ring-1 ring-[#ff8a60]/80",
                   "hover:ring-[#ff8a60]/100 hover:bg-[#ff8a60] transition ease-in delay-50",
                   "whitespace-nowrap text-base font-bold text-gray-950",
-                  "data-[disabled]:bg-white/15 data-[hover]:bg-white/20 data-[disabled]:opacity-40"
+                  "data-[disabled]:/15 data-[hover]:/20 data-[disabled]:opacity-40"
                 )}
                 type="submit"
               >
