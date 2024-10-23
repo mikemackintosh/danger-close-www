@@ -2,8 +2,8 @@ build:
 	docker build -t dangerclose-www .
 
 dev:
-	docker build -t dangerclose-dev-www env/dev
-	docker run -it -p 7841:7841 -v $(PWD):/app dangerclose-dev-www
+	yarn dev
 
 deploy:
-	docker build -t dangerclose-www -c env/prod/Dockerfile .
+	docker buildx build --platform=linux/amd64 -t ghcr.io/mikemackintosh/dangerclose-www:latest  .  
+	docker push ghcr.io/mikemackintosh/dangerclose-www:latest

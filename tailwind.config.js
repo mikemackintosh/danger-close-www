@@ -5,12 +5,12 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: "Switzer, system-ui, sans-serif",
+        sans: "Montserrat, Switzer, system-ui, sans-serif",
       },
       borderRadius: {
         "4xl": "2rem",
       },
     },
   },
-  plugins: [],
+  plugins: [require("@tailwindcss/typography")],
 };
