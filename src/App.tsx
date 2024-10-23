@@ -9,6 +9,8 @@ import { ChevronRightIcon } from "@heroicons/react/20/solid";
 import SplatterText from "./components/splattertext";
 import Logo from "./assets/dangerclose.png";
 import About from "./pages/About";
+import ThankYou from "./pages/ThankYou";
+import Contact from "./pages/Contact";
 
 const banner = "";
 // const banner = (
@@ -49,6 +51,8 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/rogerwilco" element={<ThankYou />} />
         <Route path="/*" element={<NotFound />} />
       </Routes>
     </div>
